@@ -1,0 +1,7 @@
+idEmprestimo,dataRetirada,dataDevolucaoPrevista,dataDevolucaoReal,status,idLivro,matriculaUsuario
+1,01-08-2025,08-08-2025,08-08-2025,Dentro do Prazo,3,2
+2,05-08-2025,12-08-2025,,Atrasado,1,5
+3,10-08-2025,17-08-2025,19-08-2025,Atrasado,5,1
+4,20-08-2025,26-08-2025,27-08-2025,Atrasado,2,3
+5,25-08-2025,01-09-2025,,Atrasado,4,4
+6,27-08-2025,03-09-2025,,Atrasado,3,4

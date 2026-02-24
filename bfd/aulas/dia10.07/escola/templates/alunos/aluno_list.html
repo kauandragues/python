@@ -1,0 +1,40 @@
+{% block content %}
+
+<h1>Alunos cadastrados</h1>
+
+<table>
+    <thead>
+        <tr><th>Nome</th><th>Matrícula</th><th>E-
+        mail</th><th>Sala</th></tr>
+    </thead>
+    <tbody>
+        {% for aluno in alunos %}
+        <tr>
+            <td>{{ aluno.nome }}</td>
+            <td>{{ aluno.matricula }}</td>
+            <td>{{ aluno.email|default:"—" }}</td>
+            <td>{% if aluno.sala %}
+                    {{ aluno.sala.nome }}
+                {% else %}
+                    Sem sala
+                {% endif %}
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="4">Nenhum aluno cadastrado.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% if is_paginated %}
+<div class="pagination">
+    {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}">anterior</a>
+    {% endif %}
+    Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages
+    }}.
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}">próxima</a>
+    {% endif %}
+</div>
+{% endif %}
+{% endblock %}

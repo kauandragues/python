@@ -1,0 +1,41 @@
+
+{% extends 'escola/base.html' %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center">
+  <h2>Alunos</h2>
+  <a class="btn btn-primary" href="{% url 'criar_aluno' %}">Novo Aluno</a>
+</div>
+<form method="get" class="row g-3 mt-3">
+  <div class="col-auto">
+    <select name="sala" class="form-select">
+      <option value="">Todas as Salas</option>
+      {% for s in salas %}
+        <option value="{{ s.id }}" {% if s.id|stringformat:'s' == sala_selecionada %}selected{% endif %}>{{ s.nome }} - {{ s.ano }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="col-auto">
+    <button class="btn btn-outline-secondary" type="submit">Filtrar</button>
+  </div>
+</form>
+<table class="table table-striped mt-3">
+  <thead><tr><th>Nome</th><th>Sala</th><th>Ações</th></tr></thead>
+  <tbody>
+    {% for aluno in alunos %}
+    <tr>
+      <td>{{ aluno.nome }}</td>
+      <td>{{ aluno.sala }}</td>
+      <td>
+        <a class="btn btn-sm btn-secondary" href="{% url 'editar_aluno' aluno.id %}">Editar</a>
+        <form method="post" action="{% url 'deletar_aluno' aluno.id %}" style="display:inline;">
+          {% csrf_token %}
+          <button class="btn btn-sm btn-danger" type="submit">Excluir</button>
+        </form>
+      </td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="3">Nenhum aluno encontrado.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

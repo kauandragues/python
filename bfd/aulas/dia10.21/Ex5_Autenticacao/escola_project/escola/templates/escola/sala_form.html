@@ -1,0 +1,11 @@
+
+{% extends 'escola/base.html' %}
+{% block content %}
+<h2>{% if form.instance.id %}Editar Sala{% else %}Nova Sala{% endif %}</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button class="btn btn-success" type="submit">Salvar</button>
+  <a class="btn btn-secondary" href="{% url 'listar_salas' %}">Cancelar</a>
+</form>
+{% endblock %}

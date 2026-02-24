@@ -1,0 +1,2 @@
+# Ex1_Criar_CRUD_Aluno\n
+Recursos habilitados: nenhum\n\nComo executar:\n1. criar venv\n2. pip install -r requirements.txt\n3. python manage.py migrate\n4. python manage.py createsuperuser\n5. python manage.py runserver\n

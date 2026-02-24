@@ -1,0 +1,8 @@
+print("Calculadora Simples")
+num1 = float(input("Digite o primeiro número: "))
+num2 = float(input("Digite o segundo número: "))
+print(f"O resultado de {num1} + {num2} = {num1+num2}")
+print(f"O resultado de {num1} - {num2} = {num1-num2}")
+print(f"O resultado de {num1} x {num2} = {num1*num2}")
+print(f"O resultado de {num1} / {num2} = {num1/num2:.2f}")
+print(f"O resultado de {num2} / {num1} = {num2/num1:.2f}")

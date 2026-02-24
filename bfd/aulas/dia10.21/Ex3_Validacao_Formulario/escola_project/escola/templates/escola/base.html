@@ -1,0 +1,28 @@
+
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Escola - Django</title>
+
+  </head>
+  <body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Escola</a>
+        <div class="d-flex">
+          {% if user.is_authenticated %}
+            <span class="navbar-text text-white me-2">{{ user.username }}</span>
+            <a class="btn btn-outline-light btn-sm" href="{% url 'logout' %}?next={{ request.path }}">Sair</a>
+          {% else %}
+            <a class="btn btn-outline-light btn-sm" href="{% url 'login' %}?next={{ request.path }}">Entrar</a>
+          {% endif %}
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      {% block content %}{% endblock %}
+    </div>
+  </body>
+</html>

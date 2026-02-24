@@ -1,0 +1,2 @@
+# Ex2_Filtro_Sala\n
+Recursos habilitados: filter\n\nComo executar:\n1. criar venv\n2. pip install -r requirements.txt\n3. python manage.py migrate\n4. python manage.py createsuperuser\n5. python manage.py runserver\n

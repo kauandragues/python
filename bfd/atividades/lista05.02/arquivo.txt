@@ -1,0 +1,4 @@
+Conteudo do arquivo
+linha 1
+linha 2
+etc...
