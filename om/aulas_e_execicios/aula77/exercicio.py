@@ -1,64 +1,75 @@
 # Exercício - sistema de perguntas e respostas
+def main():
+    perguntas = [
+        {
+            "Pergunta": "Qual o nome do criador do Linux?",
+            "Opções": ["Pedro Sampaio", "Luis Assis", "Linus Torvalds"],
+            "Resposta": "Linus Torvalds",
+        },
+        {
+            "Pergunta": "Qual linguagem roda principalmente no navegador?",
+            "Opções": ["Java", "JavaScript", "C"],
+            "Resposta": "JavaScript",
+        },
+        {
+            "Pergunta": "Qual sistema de controle de versão é mais utilizado?",
+            "Opções": ["Git", "SVN", "Mercurial"],
+            "Resposta": "Git",
+        },
+        {
+            "Pergunta": "Qual empresa criou o sistema operacional Windows?",
+            "Opções": ["Apple", "Microsoft", "Google"],
+            "Resposta": "Microsoft",
+        },
+        {
+            "Pergunta": "Qual banco de dados é do tipo relacional?",
+            "Opções": ["MongoDB", "MySQL", "Redis"],
+            "Resposta": "MySQL",
+        },
+        {
+            "Pergunta": "Qual protocolo é usado para transferir páginas web?",
+            "Opções": ["FTP", "HTTP", "SMTP"],
+            "Resposta": "HTTP",
+        },
+        {
+            "Pergunta": "Qual estrutura de dados segue o princípio LIFO?",
+            "Opções": ["Fila", "Lista", "Pilha"],
+            "Resposta": "Pilha",
+        },
+        {
+            "Pergunta": "Qual estrutura de dados segue o princípio FIFO?",
+            "Opções": ["Fila", "Pilha", "Árvore"],
+            "Resposta": "Fila",
+        },
+    ]
+    quantidade_de_acertos = 0
+    quantidade_de_perguntas = len(perguntas)
 
-perguntas = [
-    {
-        'Pergunta': 'Qual o nome do criador do Linux?',
-        'Opções': ['Pedro Sampaio', 'Luis Assis', 'Linus Torvalds'],
-        'Resposta': 'Linus Torvalds',
-    },
-    {
-        'Pergunta': 'Qual linguagem roda principalmente no navegador?',
-        'Opções': ['Java', 'JavaScript', 'C'],
-        'Resposta': 'JavaScript',
-    },
-    {
-        'Pergunta': 'Qual sistema de controle de versão é mais utilizado?',
-        'Opções': ['Git', 'SVN', 'Mercurial'],
-        'Resposta': 'Git',
-    },
-    {
-        'Pergunta': 'Qual empresa criou o sistema operacional Windows?',
-        'Opções': ['Apple', 'Microsoft', 'Google'],
-        'Resposta': 'Microsoft',
-    },
-    {
-        'Pergunta': 'Qual banco de dados é do tipo relacional?',
-        'Opções': ['MongoDB', 'MySQL', 'Redis'],
-        'Resposta': 'MySQL',
-    },
-    {
-        'Pergunta': 'Qual protocolo é usado para transferir páginas web?',
-        'Opções': ['FTP', 'HTTP', 'SMTP'],
-        'Resposta': 'HTTP',
-    },
-    {
-        'Pergunta': 'Qual estrutura de dados segue o princípio LIFO?',
-        'Opções': ['Fila', 'Lista', 'Pilha'],
-        'Resposta': 'Pilha',
-    },
-    {
-        'Pergunta': 'Qual estrutura de dados segue o princípio FIFO?',
-        'Opções': ['Fila', 'Pilha', 'Árvore'],
-        'Resposta': 'Fila',
-    },
-]
+    for questao in perguntas:
+        print(f"\nPergunta: {questao['Pergunta']}")
 
-quantidade_de_acertos = 0
-quantidade_de_perguntas = len(perguntas)
+        print("Opções:")
+        for i, opcao in enumerate(questao["Opções"]):
+            print(f"{i+1}) {opcao}")
 
-for questao in perguntas:
-    print(f'\nPergunta: {questao['Pergunta']}')  
-    
-    print('Opções:')
-    for i, opcao in enumerate(questao['Opções']):
-        print(f'{i+1}) {opcao}')
+        resposta_usuario = input("Escolha uma opção: ")
+        if not resposta_usuario.isdigit():
+            print("Opção inválida!")
+            return
 
-    resposta_usuario = int(input('Escolha uma opção: ')) - 1
-    if questao['Opções'][resposta_usuario] == questao['Resposta']:
-        print('Acertou ✅')
-        quantidade_de_acertos = quantidade_de_acertos + 1
-        continue
-    
-    print('Errou!❌')
+        resposta_usuario = int(resposta_usuario) - 1
+        if resposta_usuario < 0 or resposta_usuario > quantidade_de_perguntas:
+            print("Opção inválida!")
+            return
 
-print(f'\nVocê acertou {quantidade_de_acertos} de {quantidade_de_perguntas}')
+        if questao["Opções"][resposta_usuario] == questao["Resposta"]:
+            print("Acertou ✅")
+            quantidade_de_acertos = quantidade_de_acertos + 1
+        else:
+            print("Errou!❌")
+
+    print(f"\nVocê acertou {quantidade_de_acertos} de {quantidade_de_perguntas}")
+
+
+if __name__ == "__main__":
+    main()
