@@ -1,0 +1,1 @@
+ = [input() for _ in range(quantidade_entradas)]
