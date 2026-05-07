@@ -4,13 +4,25 @@
         "dockerfile": "Dockerfile"
     },
     "remoteUser": "dev",
-
+    
     // Configuração mínima: Confiança no Git
     "postCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
 
     "customizations": {
         "zed": {
             "interpreter": ".venv/bin/python"
+        },
+        "vscode": {
+            "extensions": [
+                "atommaterial.a-file-icon-vscode",
+                "ms-vscode-remote.remote-containers",
+                "ms-toolsai.jupyter-renderers",
+                "ms-python.vscode-pylance",
+                "ms-python.python",
+                "ms-python.debugpy",
+                "ms-python.vscode-python-envs",
+                "ms-vscode-remote.vscode-remote-extensionpack"
+            ]
         }
     }
 }
