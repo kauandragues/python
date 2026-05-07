@@ -1,0 +1,16 @@
+{
+    "name": "Python UV Environment",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "remoteUser": "dev",
+
+    // Configuração mínima: Confiança no Git
+    "postCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
+
+    "customizations": {
+        "zed": {
+            "interpreter": ".venv/bin/python"
+        }
+    }
+}
